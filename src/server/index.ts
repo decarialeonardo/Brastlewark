@@ -3,7 +3,7 @@ import * as cookieParser from 'cookie-parser';
 
 import api from './api';
 
-const basePath = '/gnomos';
+const basePath = '/brastlewark';
 
 const server: express.Application = express();
 server.disable('x-powered-by');

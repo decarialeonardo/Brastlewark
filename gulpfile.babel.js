@@ -31,7 +31,7 @@ gulp.task('watch:server', done => {
     ext: 'ts',
     watch: PATHS.server,
     tasks: ['build:server:code'],
-    stdout: false,
+    stdout: true,
   });
   return stream
     .on('restart', () => {

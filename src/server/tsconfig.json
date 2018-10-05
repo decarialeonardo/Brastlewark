@@ -5,9 +5,7 @@
       "target": "es2017",
       "outDir": "../../build/server/",
       "module": "commonjs",
-      "baseUrl": ".",
-      "paths": {
-      }
+      "baseUrl": "."
     }
   }
   
