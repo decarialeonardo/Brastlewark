@@ -1,0 +1,42 @@
+# compiled output
+/dist
+/build
+/dist-server
+/tmp
+/out-tsc
+
+# logs
+*.log
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+.project
+.classpath
+.c9/
+.idea/
+.settings/
+.vscode/
+*.launch
+*.sublime-workspace
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/typings
+/libpeerconnection.log
+npm-debug.log
+testem.log
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
+
+#Coverage Files
+src/server/coverage
