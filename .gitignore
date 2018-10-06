@@ -4,6 +4,7 @@
 /dist-server
 /tmp
 /out-tsc
+/src/client/vendors-pkg.js
 
 # logs
 *.log

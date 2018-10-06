@@ -1,11 +1,16 @@
 import gulp from 'gulp';
 import ts from 'gulp-typescript';
 import nodemon from 'gulp-nodemon';
-import ts_import from 'gulp-typescript-path-resolver';
+import babel from 'gulp-babel';
+import uglify from 'gulp-uglify';
+import webpack from 'webpack-stream';
+import webpackConfig from './webpack.config';
+import templateCache from './gulp-tasks/template-cache';
 
 const PATHS = {
   server: './src/server/',
-  tsconfig: './src/server/tsconfig.json',
+  vendors: './node_modules',
+  tsconfig: './src/server/tsconfig.json'
 };
 
 gulp.task('build:server:code', done => {
@@ -13,7 +18,6 @@ gulp.task('build:server:code', done => {
   return tsProject
     .src()
     .pipe(tsProject())
-    //.pipe(ts_import.tsPathResolver(tsProject.config.compilerOptions))
     .on('error', function(error, callback) {
       console.error('[TypeScript] Error:', error.stack);
       this.emit('end');
@@ -52,5 +56,34 @@ gulp.task('watch:server', done => {
 gulp.task('dev:server', gulp.series('build:server:code', 'watch:server'));
 
 
-import templateCache from './gulp-tasks/template-cache';
-gulp.task('build-client',templateCache({gulp}));
+gulp.task('build:client:webpack', done => {
+  return gulp.src('./src/client/vendors.js')
+    .pipe(webpack(webpackConfig))
+    .pipe(babel({presets:['env'],compact:false}))
+    .pipe(gulp.dest('src/client/'))
+    .on('end', done);
+});
+
+gulp.task('build:client:uglify', done => {
+  return gulp.src('./src/client/vendors-pkg.js')
+    .pipe(uglify({mangle:false}))
+    .pipe(gulp.dest('build/dist/'))
+    .on('end', done);
+});
+
+gulp.task('build:client:typescript', done => {
+  const tsProject = ts.createProject('./src/client/tsconfig.json');
+  return tsProject
+    .src()
+    .pipe(tsProject())
+    .on('error', function(error, callback) {
+      console.error('[TypeScript] Error:', error.stack);
+      this.emit('end');
+    })
+    .pipe(gulp.dest('build/dist/'))
+    .on('end', done);
+});
+
+gulp.task('build:client:vendors', gulp.series('build:client:webpack','build:client:uglify'));
+//gulp.task('build:client:vendors', gulp.series('build:client:webpack'));
+gulp.task('build-client', gulp.series('build:client:typescript', 'build:client:vendors', templateCache({gulp})));

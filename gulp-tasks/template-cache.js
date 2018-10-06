@@ -5,7 +5,6 @@ const config = {
   options: {
     standalone: true,
     module: 'root.templates',
-    
     templateHeader:`(function() { angular.module("<%= module %>"<%= standalone %>).run(["$templateCache", function($templateCache) {`,
     templateFooter: '}])})();',
     transformUrl: function (url) {
@@ -16,9 +15,9 @@ const config = {
 
 export default ({gulp}) => {
   return (done) => {
-    gulp.src('./src/client/app/ajs-app/**/*.html')
+    gulp.src('./src/client/app/**/*.html')
       .pipe(angularTemplatecache(config.file, config.options))
-      .pipe(gulp.dest('./src/client/app/ajs-app/'));
+      .pipe(gulp.dest('./build/dist/'));
     done();
   }
 };

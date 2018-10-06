@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as path from 'path';
+import config from '../config';
 
 const DIST_PATH = path.join(__dirname, '../../dist');
 
@@ -9,6 +10,10 @@ app.disable('x-powered-by');
 app.set('views', DIST_PATH);
 app.set('view engine', 'html');
 
-app.use('/dist', express.static(DIST_PATH));
+app.use('/static', express.static(DIST_PATH));
+
+app.get('/',(req, res) => {
+    res.sendfile(path.join(`${config.buildPath}/../views/index.html`));
+});
 
 export default app;
