@@ -1,10 +1,10 @@
 import gulp from 'gulp';
 import ts from 'gulp-typescript';
 import nodemon from 'gulp-nodemon';
-import babel from 'gulp-babel';
-import uglify from 'gulp-uglify';
 import jade from 'gulp-jade';
-//import webpackConfig from './webpack.config';
+import sass from 'gulp-sass';
+import combineMq from 'gulp-combine-mq';
+import csso from 'gulp-csso';
 import templateCache from './gulp-tasks/template-cache';
 
 const PATHS = {
@@ -77,6 +77,21 @@ gulp.task('build:client:jade', done => {
     .on('end', done);
 });
 
+/**
+ * Compiling scss into css.
+ */
+gulp.task('build:client:styles', done => {
+	return gulp
+		.src('./src/client/scss/main.scss')
+		.pipe(sass())
+		.pipe(combineMq())
+		.pipe(csso())
+    .pipe(gulp.dest('build/dist/'))
+    .on('end', done);
+});
+
+
+
 //gulp.task('build:client:vendors', gulp.series('build:client:webpack','build:client:uglify'));
 //gulp.task('build:client:vendors', gulp.series('build:client:webpack'));
-gulp.task('build-client', gulp.series('build:client:typescript', templateCache({gulp}),'build:client:jade'));
+gulp.task('build-client', gulp.series('build:client:typescript', templateCache({gulp}),'build:client:jade','build:client:styles'));

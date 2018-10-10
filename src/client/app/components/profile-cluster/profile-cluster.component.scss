@@ -1,0 +1,38 @@
+.profile-container{
+    margin: 0 0 16px 6px;
+    position: relative;
+    width: 97.5%;
+    .profile-picture {
+        display: inline-block;
+        height: 215px;
+        width: 29%;
+        vertical-align: sub;
+
+        .pic {
+            position: relative;
+            height: 185px;
+            display: inline-block;
+            overflow: hidden;
+            width: 100%;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            img {
+                position: absolute;
+                top:50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+            }
+        }
+    }
+    .profile-description {
+        background-color: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.24), 0 0 2px 0 rgba(0,0,0,.12);
+        display: inline-block;
+        height: 215px;
+        overflow: hidden;
+        position: relative;
+        width: 71%;
+        vertical-align: text-bottom;
+    }
+}
