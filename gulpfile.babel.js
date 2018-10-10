@@ -3,8 +3,8 @@ import ts from 'gulp-typescript';
 import nodemon from 'gulp-nodemon';
 import babel from 'gulp-babel';
 import uglify from 'gulp-uglify';
-import webpack from 'webpack-stream';
-import webpackConfig from './webpack.config';
+import jade from 'gulp-jade';
+//import webpackConfig from './webpack.config';
 import templateCache from './gulp-tasks/template-cache';
 
 const PATHS = {
@@ -55,22 +55,6 @@ gulp.task('watch:server', done => {
 
 gulp.task('dev:server', gulp.series('build:server:code', 'watch:server'));
 
-
-gulp.task('build:client:webpack', done => {
-  return gulp.src('./src/client/vendors.js')
-    .pipe(webpack(webpackConfig))
-    .pipe(babel({presets:['env'],compact:false}))
-    .pipe(gulp.dest('src/client/'))
-    .on('end', done);
-});
-
-gulp.task('build:client:uglify', done => {
-  return gulp.src('./src/client/vendors-pkg.js')
-    .pipe(uglify({mangle:false}))
-    .pipe(gulp.dest('build/dist/'))
-    .on('end', done);
-});
-
 gulp.task('build:client:typescript', done => {
   const tsProject = ts.createProject('./src/client/tsconfig.json');
   return tsProject
@@ -84,6 +68,15 @@ gulp.task('build:client:typescript', done => {
     .on('end', done);
 });
 
-gulp.task('build:client:vendors', gulp.series('build:client:webpack','build:client:uglify'));
+gulp.task('build:client:jade', done => {
+  return gulp.src('./src/client/app/**/*.jade')
+    .pipe(jade({
+      locals: {}
+    }))
+    .pipe(gulp.dest('build/dist/'))
+    .on('end', done);
+});
+
+//gulp.task('build:client:vendors', gulp.series('build:client:webpack','build:client:uglify'));
 //gulp.task('build:client:vendors', gulp.series('build:client:webpack'));
-gulp.task('build-client', gulp.series('build:client:typescript', 'build:client:vendors', templateCache({gulp})));
+gulp.task('build-client', gulp.series('build:client:typescript', templateCache({gulp}),'build:client:jade'));

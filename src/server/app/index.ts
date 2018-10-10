@@ -13,7 +13,7 @@ app.set('view engine', 'html');
 app.use('/static', express.static(DIST_PATH));
 
 app.get('/',(req, res) => {
-    res.sendfile(path.join(`${config.buildPath}/../views/index.html`));
+    res.sendFile(path.join(`${config.buildPath}/../views/index.html`));
 });
 
 export default app;

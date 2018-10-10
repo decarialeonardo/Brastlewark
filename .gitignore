@@ -4,7 +4,8 @@
 /dist-server
 /tmp
 /out-tsc
-/src/client/vendors-pkg.js
+/typings
+
 
 # logs
 *.log
@@ -41,3 +42,6 @@ Thumbs.db
 
 #Coverage Files
 src/server/coverage
+
+# Templeate cache
+/src/client/app/app.templates.ts

@@ -10,13 +10,19 @@
     <meta name="robots" content="noydir">
     <meta name="description" content="">
     <title>Brastlewark</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
     <meta name="version-info">
     </head>
-    <body>
-    <div class="container-fluid">
-    </div>
-            
+    <body ng-app="App">
+        <div class="container-fluid">
+            <profile-cluster></profile-cluster>
+        </div>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script type="text/javascript" src="/brastlewark/static/components/profile-cluster/profile-cluster.component.js"></script>
+        <script type="text/javascript" src="/brastlewark/static/services/population.service.js"></script>
+        <script type="text/javascript" src="/brastlewark/static/app.module.js"></script>
+    
     <!--script type="text/javascript" src="/brastlewark/static/js/js/app.js"></script-->
-    <script type="text/javascript" src="/brastlewark/static/vendors-pkg.js"></script>
+    <!--script type="text/javascript" src="/brastlewark/static/vendors-pkg.js"></script-->
     </body>
 </html>
