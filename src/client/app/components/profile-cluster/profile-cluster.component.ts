@@ -1,5 +1,3 @@
-/// <reference path="../../../../../typings/index.d.ts" />
-
 module App {
 
     export interface IGnome extends ng.IScope{
