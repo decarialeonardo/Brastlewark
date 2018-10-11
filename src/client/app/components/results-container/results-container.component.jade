@@ -1,2 +1,2 @@
 .general-container
-  profile-cluster
+  profile-cluster(ng-repeat="gnome in ctrl.gnomes| filter: ctrl.filtersApply" profile="gnome")

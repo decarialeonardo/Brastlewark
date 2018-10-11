@@ -1,31 +1,32 @@
-
-/// <reference path="../../../../../typings/index.d.ts" />
-/// <reference path="../../services/population.service.ts" />
-
-
 module App {
 
     export class ResultsContainerComponent implements ng.IDirective{
         public restrict = "E";
         public replace = true;
-        public templateUrl = "static/components/results/results.component.html";
+        public templateUrl = "static/components/results-container/results-container.component.html";
         public scope = {};
+        public controller = App.ResultsContainerController;
+        public bindToController = {
+            gnomes: '=',
+            filtersApply: '='
+        };
+        public controllerAs = "ctrl";
 
-        constructor(private populationService:PopulationService){
-            this.populationService.getPopulation().then(
-                (success) => {
-                    success.data['Brastlewark'];
-                },
-                (error) => {
-                    console.log('Error loading json: ', error);
-                });
-        }
+        constructor(){}
 
         static getFactory(): ng.IDirectiveFactory {
-            const directive = (populationService:PopulationService) => new ResultsContainerComponent(populationService);
-            directive.$inject = ["PopulationService"];
+            const directive = () => new ResultsContainerComponent();
             return directive;
         }
+
+    }
+
+    export class ResultsContainerController {
+        
+        private gnomes:any;
+        private filtersApply;
+
+        constructor(){} 
     }
 }
 

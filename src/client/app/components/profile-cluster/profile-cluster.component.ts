@@ -19,33 +19,35 @@ module App {
         public restrict = "E";
         public replace = true;
         public templateUrl = "static/components/profile-cluster/profile-cluster.component.html";
-        public scope = {};
+        public scope = {
+            profile: "="
+        };
         public link: (scope: IGnome, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => void;
 
         constructor() {
             this.link = (scope: IGnome, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) =>
             {
-                scope.profile = {
-                    id: 0,
-                    name: "Tobus Quickwhistle",
-                    thumbnail: "http://www.publicdomainpictures.net/pictures/10000/nahled/thinking-monkey-11282237747K8xB.jpg",
-                    age: 306,
-                    weight: 39.065952,
-                    height: 107.75835,
-                    hair_color: "Pink",
-                    professions: [
-                        "Metalworker",
-                        "Woodcarver",
-                        "Stonecarver",
-                        " Tinker",
-                        "Tailor",
-                        "Potter"
-                    ],
-                    friends: [
-                        "Cogwitz Chillwidget",
-                        "Tinadette Chillbuster"
-                    ]
-                };
+                // scope.profile = {
+                //     id: 0,
+                //     name: "Tobus Quickwhistle",
+                //     thumbnail: "http://www.publicdomainpictures.net/pictures/10000/nahled/thinking-monkey-11282237747K8xB.jpg",
+                //     age: 306,
+                //     weight: 39.065952,
+                //     height: 107.75835,
+                //     hair_color: "Pink",
+                //     professions: [
+                //         "Metalworker",
+                //         "Woodcarver",
+                //         "Stonecarver",
+                //         " Tinker",
+                //         "Tailor",
+                //         "Potter"
+                //     ],
+                //     friends: [
+                //         "Cogwitz Chillwidget",
+                //         "Tinadette Chillbuster"
+                //     ]
+                // };
             };
         }
 
