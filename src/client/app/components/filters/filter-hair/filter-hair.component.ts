@@ -17,10 +17,10 @@ module App {
     }
 
     export class FilterHairController {
-        public static $inject = ["ResultsDataService"];
+        public static $inject = ["DataFilteredService","Constants"];
         private selection;
 
-        constructor(private resultsDataService:ResultsDataService) {
+        constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {
             this.selection = [];
         }
 
@@ -31,17 +31,9 @@ module App {
                 this.selection.splice(idx, 1);
             } else {
                 this.selection.push(color);
-                this.applyFilter(this.selection, this.resultsDataService.getGnomes());
             }
+            this.dataFilteredService.addFilter(this.constants.FiltersType.HAIR_COLOR,this.selection);
             
-        }
-
-        private applyFilter(colorSelected, gnomes){
-            let self = this;
-            let result = gnomes.filter(function (gnome) {
-                return colorSelected.includes(gnome.hair_color);
-            });
-            this.resultsDataService.setGnomes(result);
         }
         
     }

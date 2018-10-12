@@ -1,6 +1,7 @@
 /// <reference path="../../../typings/index.d.ts" />
 /// <reference path="services/population.service.ts" />
-/// <reference path="services/results-data.service.ts" />
+/// <reference path="services/data-filtered.service.ts" />
+/// <reference path="helpers/constants.ts" />
 /// <reference path="components/main/main.component.ts" />
 /// <reference path="components/profile-cluster/profile-cluster.component.ts" />
 /// <reference path="components/results-container/results-container.component.ts" />
@@ -10,11 +11,16 @@
 /// <reference path="components/filters/filter-hair/filter-hair.component.ts" />
 
 
+
 var app = angular.module('App', []);
+
+//Add - Constants
+app.service("Constants", App.Constants);
+
 
 //Add - Services
 app.service("PopulationService", App.PopulationService);
-app.service("ResultsDataService", App.ResultsDataService);
+app.service("DataFilteredService", App.DataFilteredService);
 
 app.directive("main", App.MainComponent.getFactory());
 app.directive("profileCluster", App.ProfileClusterComponent.getFactory());

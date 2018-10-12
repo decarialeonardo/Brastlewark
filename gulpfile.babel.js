@@ -5,6 +5,9 @@ import jade from 'gulp-jade';
 import sass from 'gulp-sass';
 import combineMq from 'gulp-combine-mq';
 import csso from 'gulp-csso';
+import concat from 'gulp-concat';
+import order from 'gulp-order';
+import print from 'gulp-print';
 import templateCache from './gulp-tasks/template-cache';
 
 const PATHS = {
@@ -77,9 +80,6 @@ gulp.task('build:client:jade', done => {
     .on('end', done);
 });
 
-/**
- * Compiling scss into css.
- */
 gulp.task('build:client:styles', done => {
 	return gulp
 		.src('./src/client/scss/main.scss')
@@ -90,8 +90,32 @@ gulp.task('build:client:styles', done => {
     .on('end', done);
 });
 
+gulp.task('build:client:scripts', done => {
+	console.log('concat app js files');
+
+  return gulp
+    .src(['build/dist/**/*.js','!build/dist/libs.js','!build/dist/app.templates.js','!build/dist/brastlewark-pkg.js'])
+		.pipe(order([
+      'build/dist/**/!(app.module)*.js',
+      'build/dist/app.module.js'
+    ], { base: './' } ))
+    .pipe(print())
+		.pipe(concat('brastlewark-pkg.js'))
+    .pipe(gulp.dest('build/dist/'))
+    .on('end', done);
+});
+
+gulp.task('build:vendors:scripts', done => {
+	console.log('concat vendors js files');
+
+  return gulp
+    .src(['node_modules/angular/angular.min.js'])
+    .pipe(concat('libs.js'))
+    .pipe(print())
+    .pipe(gulp.dest('build/dist/'))
+    .on('end', done);
+});
 
 
-//gulp.task('build:client:vendors', gulp.series('build:client:webpack','build:client:uglify'));
-//gulp.task('build:client:vendors', gulp.series('build:client:webpack'));
-gulp.task('build-client', gulp.series('build:client:typescript', templateCache({gulp}),'build:client:jade','build:client:styles'));
+
+gulp.task('build-client', gulp.series('build:client:typescript', templateCache({gulp}),'build:client:jade','build:client:styles','build:client:scripts','build:vendors:scripts'));

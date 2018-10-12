@@ -17,11 +17,11 @@ module App {
     }
 
     export class FilterProfessionsController {
-        public static $inject = ["ResultsDataService"];
+        public static $inject = ["DataFilteredService",'Constants'];
         private professions;
         private selection;
 
-        constructor(private resultsDataService:ResultsDataService) {
+        constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {
             this.selection = [];
         }
 
@@ -30,29 +30,10 @@ module App {
 
             if (idx > -1) {
                 this.selection.splice(idx, 1);
-                //this.applyFilter(this.selection, this.resultsDataService.getOriginalGnomes());
             } else {
                 this.selection.push(profession);
-                this.applyFilter(this.selection, this.resultsDataService.getGnomes());
             }
-            
-        }
-
-        private applyFilter(professionsSelected, gnomes){
-            let self = this;
-            let result = gnomes.filter(function (gnome) {
-                return self.arrayContainsArray(gnome.professions, professionsSelected);
-            });
-            this.resultsDataService.setGnomes(result);
-        }
-
-        private arrayContainsArray(superset, subset) {
-            if (0 === subset.length) {
-              return false;
-            }
-            return subset.every(function (value) {
-              return (superset.indexOf(value) >= 0);
-            });
+            this.dataFilteredService.addFilter(this.constants.FiltersType.PROFESSIONS,this.selection);
         }
         
     }

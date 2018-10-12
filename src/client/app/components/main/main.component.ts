@@ -20,7 +20,7 @@ module App {
     }
 
     export class MainController {
-        public static $inject = ["$scope","PopulationService","ResultsDataService"];
+        public static $inject = ["$scope","PopulationService","DataFilteredService"];
         private results:any;
         private professions;
         private hair_colors;
@@ -29,23 +29,23 @@ module App {
         private weight;
         private professionsFilter;
 
-        constructor(private $scope, private populationService:PopulationService, private resultsDataService:ResultsDataService){
+        constructor(private $scope, private populationService:PopulationService, private dataFilteredService:DataFilteredService){
             this.loadData();
         }
 
         private loadData(){
             this.populationService.getPopulation().then(
                 (success) => {
-                    this.resultsDataService.initGnomes(success.data['Brastlewark']);
+                    this.dataFilteredService.setGnomes(success.data['Brastlewark']);
                     this.results = function(){
-                        return this.resultsDataService.getGnomes();
+                        return this.dataFilteredService.getGnomes();
                     };
 
-                    this.professions = this.processProfessionsFilters(this.resultsDataService.getGnomes());
-                    this.hair_colors = this.processHairFilters(this.resultsDataService.getGnomes());
-                    this.ages = this.processRangesFilters(this.resultsDataService.getGnomes(),'age');
-                    this.height = this.processRangesFilters(this.resultsDataService.getGnomes(),'height');
-                    this.weight = this.processRangesFilters(this.resultsDataService.getGnomes(),'weight');
+                    this.professions = this.processProfessionsFilters(this.dataFilteredService.getGnomes());
+                    this.hair_colors = this.processHairFilters(this.dataFilteredService.getGnomes());
+                    this.ages = this.processRangesFilters(this.dataFilteredService.getGnomes(),'age');
+                    this.height = this.processRangesFilters(this.dataFilteredService.getGnomes(),'height');
+                    this.weight = this.processRangesFilters(this.dataFilteredService.getGnomes(),'weight');
                 },
                 (error) => {
                     console.log('Error loading json: ', error);

@@ -17,17 +17,14 @@ module App {
     }
 
     export class FilterNameController {
-        public static $inject = ["ResultsDataService"];
+        public static $inject = ["DataFilteredService",'Constants'];
         private name: any;
 
-        constructor(private resultsDataService:ResultsDataService) {}
+        constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {}
 
         public applyFilter() {
             let searchName = this.name;
-            let result = this.resultsDataService.getGnomes().filter(function (gnome) {
-                return gnome.name.toLowerCase().includes(searchName);
-            });
-            this.resultsDataService.setGnomes(result);
+            this.dataFilteredService.addFilter(this.constants.FiltersType.NAME,this.name);
         }
       }
 }
