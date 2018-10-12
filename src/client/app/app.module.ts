@@ -12,7 +12,7 @@
 
 
 
-var app = angular.module('App', []);
+var app = angular.module('App', ['rzModule']);
 
 //Add - Constants
 app.service("Constants", App.Constants);
