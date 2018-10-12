@@ -1,2 +1,3 @@
 .general-container
-  profile-cluster(ng-repeat="gnome in ctrl.gnomes| filter: ctrl.filtersApply" profile="gnome")
+  h2 {{filteredGnomes.length}} - {{ctrl.nameFilter}} - {{ctrl.professionsFilter}}
+  profile-cluster(ng-repeat="gnome in ctrl.gnomes | filter: ctrl.nameFilter | filter: ctrl.filteredByProfessions as filteredGnomes" profile="gnome")

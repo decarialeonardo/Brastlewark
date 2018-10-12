@@ -18,17 +18,16 @@ module App {
 
     export class FilterNameController {
         public static $inject = ["ResultsDataService"];
-        private onUpdate: any;
         private name: any;
-        private search;
-        private filterName: any;
 
-        constructor(private resultsDataService:ResultsDataService) {
-          this.name = '';
-        }
+        constructor(private resultsDataService:ResultsDataService) {}
 
-        applyFilter() {
-            this.search['name'] = this.name; 
+        public applyFilter() {
+            let searchName = this.name;
+            let result = this.resultsDataService.getGnomes().filter(function (gnome) {
+                return gnome.name.toLowerCase().includes(searchName);
+            });
+            this.resultsDataService.setGnomes(result);
         }
       }
 }

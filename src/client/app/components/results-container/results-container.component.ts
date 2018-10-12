@@ -8,7 +8,8 @@ module App {
         public controller = App.ResultsContainerController;
         public bindToController = {
             gnomes: '=',
-            filtersApply: '='
+            nameFilter: '=',
+            professionsFilter: '='
         };
         public controllerAs = "ctrl";
 
@@ -24,9 +25,12 @@ module App {
     export class ResultsContainerController {
         
         private gnomes:any;
-        private filtersApply;
+        private professionsFilter;
 
-        constructor(){} 
+        constructor(){
+            // this.filtersApply['professions'] = 'Tailor';
+        }
+        
     }
 }
 

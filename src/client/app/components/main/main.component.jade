@@ -1,5 +1,7 @@
 .row
   .col-md-3
-    filters-box(filters="ctrl.filters")
+    filters-box(professions="ctrl.professions" hair-colors="ctrl.hair_colors")
   .col-md-9
-    results-container(filters-apply="ctrl.filters" gnomes="ctrl.results")
+    .general-container
+        h2 {{ctrl.results().length}}
+        profile-cluster(ng-repeat="gnome in ctrl.results()" profile="gnome")

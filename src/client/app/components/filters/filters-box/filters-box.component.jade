@@ -7,7 +7,7 @@
         span.icon.icon-cross
         | Quitar filtros
     .mobile-toggle-box
-      filter-name(search="ctrl.filters")
+      filter-name
       //- filter-age-container
-      //- filter-professions-container
-      //- filter-hair-container
+      filter-professions(professions="ctrl.professions")
+      filter-hair(colors="ctrl.hairColors")

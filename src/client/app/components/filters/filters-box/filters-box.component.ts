@@ -6,7 +6,8 @@ module App {
         public scope = {};
         public controller = App.FilterBoxController;
         public bindToController = {
-            filters: '='
+            professions: '=',
+            hairColors: '='
         };
         public controllerAs = "ctrl";
 
@@ -17,7 +18,6 @@ module App {
     }
 
     export class FilterBoxController {
-        private filters: any;
         constructor() {}
 
     }
