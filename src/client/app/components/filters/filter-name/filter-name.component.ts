@@ -5,9 +5,7 @@ module App {
         public templateUrl = "static/components/filters/filter-name/filter-name.component.html";
         public scope = {};
         public controller = App.FilterNameController;
-        public bindToController = {
-            search: '='
-        };
+        public bindToController = {};
         public controllerAs = "ctrl";
 
         static getFactory(): ng.IDirectiveFactory {
@@ -23,7 +21,6 @@ module App {
         constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {}
 
         public applyFilter() {
-            let searchName = this.name;
             this.dataFilteredService.addFilter(this.constants.FiltersType.NAME,this.name);
         }
       }

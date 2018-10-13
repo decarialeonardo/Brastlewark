@@ -4,6 +4,6 @@
     | Professions
   .filter-container
     .inner
-      label(ng-repeat='profession in ctrl.professions')
+      label(ng-repeat='profession in ctrl.professions()')
         input(type='checkbox' name='ctrl.selectedProfessions[profession]' ng-model="ctrl.selectedProfessions[profession]" id='check-{{profession}}' value='{{profession}}' ng-click='ctrl.toggleSelection(profession)')
         span.txt {{profession}}

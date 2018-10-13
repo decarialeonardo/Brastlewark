@@ -5,9 +5,7 @@ module App {
         public templateUrl = "static/components/filters/filter-professions/filter-professions.component.html";
         public scope = {};
         public controller = App.FilterProfessionsController;
-        public bindToController = {
-            professions: '='
-        };
+        public bindToController = {};
         public controllerAs = "ctrl";
 
         static getFactory(): ng.IDirectiveFactory {
@@ -23,6 +21,9 @@ module App {
 
         constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {
             this.selection = [];
+            this.professions = function(){
+                return this.dataFilteredService.getFilterOptions(this.constants.FiltersType.PROFESSIONS);
+            }
         }
 
         public toggleSelection(profession){

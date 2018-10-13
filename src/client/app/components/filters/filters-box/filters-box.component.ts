@@ -6,8 +6,6 @@ module App {
         public scope = {};
         public controller = App.FilterBoxController;
         public bindToController = {
-            professions: '=',
-            hairColors: '='
         };
         public controllerAs = "ctrl";
 
@@ -18,7 +16,32 @@ module App {
     }
 
     export class FilterBoxController {
-        constructor() {}
-
+        public static $inject = ["DataFilteredService",'Constants'];
+        private filterAge;
+        private filterHeight;
+        private filterWeight;
+        constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {
+            this.filterAge = {
+                type: this.constants.FiltersType.AGE,
+                range:{
+                    min: 30,
+                    max: 379
+                }
+            };
+            this.filterHeight = {
+                type: this.constants.FiltersType.HEIGHT,
+                range:{                    
+                    max:129.37299,
+                    min:91.41726
+                }
+            };
+            this.filterWeight = {
+                type: this.constants.FiltersType.WEIGHT,
+                range:{
+                    max:44.997665,
+                    min:35.00214
+                }
+            }
+        }
     }
 }

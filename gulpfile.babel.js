@@ -109,7 +109,10 @@ gulp.task('build:vendors:scripts', done => {
 	console.log('concat vendors js files');
 
   return gulp
-    .src(['node_modules/angular/angular.min.js'])
+    .src([
+      'node_modules/angular/angular.min.js',
+      'node_modules/angularjs-slider/dist/rzslider.min.js'
+    ])
     .pipe(concat('libs.js'))
     .pipe(print())
     .pipe(gulp.dest('build/dist/'))

@@ -5,9 +5,7 @@ module App {
         public templateUrl = "static/components/filters/filter-hair/filter-hair.component.html";
         public scope = {};
         public controller = App.FilterHairController;
-        public bindToController = {
-            colors: '='
-        };
+        public bindToController = {};
         public controllerAs = "ctrl";
 
         static getFactory(): ng.IDirectiveFactory {
@@ -19,9 +17,13 @@ module App {
     export class FilterHairController {
         public static $inject = ["DataFilteredService","Constants"];
         private selection;
+        private colors;
 
         constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {
             this.selection = [];
+            this.colors = function() {
+                return this.dataFilteredService.getFilterOptions(this.constants.FiltersType.HAIR_COLOR);
+            }
         }
 
         public toggleSelection(color){

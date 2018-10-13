@@ -8,6 +8,7 @@
         | Quitar filtros
     .mobile-toggle-box
       filter-name
-      //- filter-age-container
-      filter-professions(professions="ctrl.professions")
-      filter-hair(colors="ctrl.hairColors")
+      filter-professions
+      filter-range(type="ctrl.filterAge.type" range="ctrl.filterAge.range")
+      filter-range(type="ctrl.filterHeight.type" range="ctrl.filterHeight.range")
+      filter-range(type="ctrl.filterWeight.type" range="ctrl.filterWeight.range")

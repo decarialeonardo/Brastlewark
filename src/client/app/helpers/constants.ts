@@ -3,7 +3,10 @@ module App {
         public FiltersType = {
             NAME: 'name',
             PROFESSIONS: 'professions',
-            HAIR_COLOR: 'hair_color'
+            HAIR_COLOR: 'hair_color',
+            AGE: 'age',
+            HEIGHT: 'height',
+            WEIGHT: 'weight'
         }
     }
 }

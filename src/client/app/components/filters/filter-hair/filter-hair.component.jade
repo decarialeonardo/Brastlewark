@@ -4,6 +4,6 @@
     | Hair Colors
   .filter-container
     .inner
-      label(ng-repeat='color in ctrl.colors')
+      label(ng-repeat='color in ctrl.colors()')
         input(type='checkbox' name='ctrl.selectedColors[color]' ng-model="ctrl.selectedColors[color]" id='check-{{color}}' value='{{color}}' ng-click='ctrl.toggleSelection(color)')
         span.txt {{color}}
