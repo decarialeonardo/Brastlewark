@@ -1,8 +1,8 @@
 .filter-item
   .filter-header
     span.icon.icon-day-night
-    | Hair Colors
-  .filter-container
+    | Hair Color
+  .filter-container.checkbox-list
     .inner
       label(ng-repeat='color in ctrl.colors()')
         input(type='checkbox' name='ctrl.selectedColors[color]' ng-model="ctrl.selectedColors[color]" id='check-{{color}}' value='{{color}}' ng-click='ctrl.toggleSelection(color)')

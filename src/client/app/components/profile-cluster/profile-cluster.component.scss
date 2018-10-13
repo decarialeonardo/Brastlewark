@@ -1,38 +1,18 @@
-.profile-container{
-    margin: 0 0 16px 6px;
+.profile-item {
     position: relative;
-    width: 97.5%;
-    .profile-picture {
-        display: inline-block;
-        height: 215px;
-        width: 29%;
-        vertical-align: sub;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    border: 1px solid #52575c;
+    border-radius: 12px;
+    height: auto;
+    min-height: 220px;
+    color: #aaa;
+    margin-top: 15px;
 
-        .pic {
-            position: relative;
-            height: 185px;
-            display: inline-block;
-            overflow: hidden;
-            width: 100%;
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-            img {
-                position: absolute;
-                top:50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-            }
-        }
+    .list-group-item-heading{
+        color: #fff;
     }
-    .profile-description {
-        background-color: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,.24), 0 0 2px 0 rgba(0,0,0,.12);
-        display: inline-block;
-        height: 215px;
-        overflow: hidden;
-        position: relative;
-        width: 71%;
-        vertical-align: text-bottom;
-    }
+}
+.stars {
+    margin:20px auto 1px;    
 }

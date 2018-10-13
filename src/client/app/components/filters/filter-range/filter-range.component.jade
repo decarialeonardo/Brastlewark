@@ -1,3 +1,7 @@
-p {{ctrl.type}}
-  rzslider(rz-slider-model="ctrl.slider.min" rz-slider-high="ctrl.slider.max" rz-slider-options="ctrl.slider.options")
+.filter-item.range
+  .filter-header
+    span
+    | {{ctrl.capitalize(ctrl.type)}} ({{ctrl.unit}})
+  .filter-container
+    rzslider(rz-slider-model="ctrl.slider.min" rz-slider-high="ctrl.slider.max" rz-slider-options="ctrl.slider.options")
 

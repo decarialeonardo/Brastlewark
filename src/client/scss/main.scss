@@ -1,5 +1,11 @@
-// 5. Components
+// Main
+@import
+    'base';
+// Components
 @import
     '../app/components/profile-cluster/profile-cluster.component',
+    '../app/components/filters/filters-box/filters-box.component',
+    '../app/components/filters/filter-name/filter-name.component',
+    '../app/components/filters/filter-range/filter-range.component',
     '../app/components/range-slider/range-slider.component',
-    '../app/components/results-container/results-container.component';
+    '../app/components/main/main.component';

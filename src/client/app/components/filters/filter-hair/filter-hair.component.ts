@@ -34,8 +34,13 @@ module App {
             } else {
                 this.selection.push(color);
             }
+
             this.dataFilteredService.addFilter(this.constants.FiltersType.HAIR_COLOR,this.selection);
             
+        }
+
+        public clearFilter(){
+            this.selection = [];
         }
         
     }

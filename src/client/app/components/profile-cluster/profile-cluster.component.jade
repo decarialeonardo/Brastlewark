@@ -1,5 +1,27 @@
-.profile-container
-    .profile-picture {{profile.id}}
-        .pic
-            img(ng-src='{{ profile.thumbnail }}' alt="")
-    .profile-description {{profile.name}}
+.row.profile-item
+    .col-md-3
+        figure.pull-left
+            img.media-object.img-rounded.img-responsive(ng-src='{{ profile.thumbnail }}' class="img-fluid" alt="")
+    .col-md-9
+        .row
+            .col-sm-9
+                h3.list-group-item-heading  {{profile.name}}
+            .col-sm-3
+                h5.list-group-item-heading {{profile.age}} Years
+        .row.header-info
+            .col-md-12
+                p {{ profile.professions.join(', ') || '- No Professions -' }}
+        .row.middle-info
+            .col-md-12  
+                label Hair Color: 
+                span &nbsp;{{profile.hair_color}}
+            .col-md-12  
+                label Weight: 
+                span &nbsp;{{profile.weight}} Kg.
+            .col-md-12  
+                label Height: 
+                span &nbsp;{{profile.height}} cm.
+        .row.footer-info
+            .col-md-12
+                label Friends({{profile.friends.length}}):
+                span &nbsp;{{ profile.friends.join(', ') || '- No Friends -' }}

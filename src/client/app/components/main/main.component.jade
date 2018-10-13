@@ -1,7 +1,13 @@
-.row
-  .col-md-3
-    filters-box(age-range="ctrl.ageRange")
-  .col-md-9
-    .general-container
-        h2 {{ctrl.results().length}}
-        profile-cluster(ng-repeat="gnome in ctrl.results()" profile="gnome")
+.main-results
+  .row
+    .col-md-12.count-results
+      span
+      | Results found
+      b &nbsp;{{ctrl.results().length || ' - ' }}&nbsp;
+      | gnomes
+  .row
+    .col-md-3
+      filters-box(age-range="ctrl.ageRange")
+    .col-md-9
+          .list-group
+            profile-cluster(ng-repeat="gnome in ctrl.results()" profile="gnome")

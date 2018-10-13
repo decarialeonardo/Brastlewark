@@ -8,5 +8,11 @@ module App {
             HEIGHT: 'height',
             WEIGHT: 'weight'
         }
+
+        public units = {
+            AGE: 'years',
+            HEIGHT: 'cm',
+            WEIGHT: 'kg'
+        }
     }
 }

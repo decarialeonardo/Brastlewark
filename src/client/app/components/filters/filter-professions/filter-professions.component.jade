@@ -2,7 +2,7 @@
   .filter-header
     span.icon.icon-day-night
     | Professions
-  .filter-container
+  .filter-container.checkbox-list
     .inner
       label(ng-repeat='profession in ctrl.professions()')
         input(type='checkbox' name='ctrl.selectedProfessions[profession]' ng-model="ctrl.selectedProfessions[profession]" id='check-{{profession}}' value='{{profession}}' ng-click='ctrl.toggleSelection(profession)')

@@ -1,10 +1,12 @@
 .filter-item
   .filter-header
     span.icon.icon-len
-    | Gnome's name
+    | Name
   .filter-container
-    .inner
       label
-        div
-          input(type='text', ng-model='ctrl.name', placeholder="Enter a name")
-          input(type='button', value="Search", ng-click='ctrl.applyFilter()')
+        form.form-inline.my-2.my-lg-0
+          input.form-control.mr-sm-2.input-search(type='text', ng-model='ctrl.name', placeholder="Enter a name")
+          button.btn.btn-secondary.my-2.my-sm-0(type='button', value="Search", ng-click='ctrl.applyFilter()') Search
+          
+  
+  

@@ -22,6 +22,7 @@ module App {
         private filterWeight;
         constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {
             this.filterAge = {
+                unit: this.constants.units.AGE,
                 type: this.constants.FiltersType.AGE,
                 range:{
                     min: 30,
@@ -29,6 +30,7 @@ module App {
                 }
             };
             this.filterHeight = {
+                unit: this.constants.units.HEIGHT,
                 type: this.constants.FiltersType.HEIGHT,
                 range:{                    
                     max:129.37299,
@@ -36,6 +38,7 @@ module App {
                 }
             };
             this.filterWeight = {
+                unit: this.constants.units.WEIGHT,
                 type: this.constants.FiltersType.WEIGHT,
                 range:{
                     max:44.997665,

@@ -1,0 +1,43 @@
+.filters{
+
+    padding-top: 16px;
+
+    .filter-item{
+        border-top: 1px solid #7a8288;
+        .filter-header{
+            color: #179ea4;
+            padding: 16px;
+            line-height: 1rem;
+            font-size: .875rem;
+            font-weight: 600;
+        }
+
+        .checkbox-list {
+            .inner {
+                padding: 0 16px 16px;
+                label {
+                    display: block!important;
+                    margin-bottom: 16px;
+                }
+            }
+        }
+
+        input[type=checkbox] {
+            margin-right: 8px;
+
+            &:checked+.txt {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .header {
+        margin-bottom: 12px;
+        padding: 8px 16px;
+        color: #fff;
+
+        .delete-filters{
+            float: right;
+        }
+    }
+}

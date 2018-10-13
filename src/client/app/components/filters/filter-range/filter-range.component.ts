@@ -8,6 +8,7 @@ module App {
         public controller = App.FilterRangeController;
         public bindToController = {
             type: '=',
+            unit: '=',
             range: '='
         };
         public controllerAs = "ctrl";
@@ -22,6 +23,7 @@ module App {
         public static $inject = ["$scope","DataFilteredService","Constants"];
         private slider;
         private type;
+        private unit;
         private range;
 
         constructor(private scope,private dataFilteredService:DataFilteredService, private constants:Constants) {
@@ -39,6 +41,10 @@ module App {
                 self.dataFilteredService.addFilter(self.type, newRange);
                 scope.$apply();
             })
+        }
+
+        public capitalize(str:string){
+            return str.charAt(0).toUpperCase() + str.slice(1);
         }
     
     }

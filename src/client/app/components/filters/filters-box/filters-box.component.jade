@@ -2,13 +2,13 @@
   .background
   .filters
     .header.filters-head
-      span.filters-title.title Filtrar por
-      button.filter-reset
-        span.icon.icon-cross
-        | Quitar filtros
+      span.filters-title.title Filter by
+      button.btn.btn-sm.btn-info.delete-filters
+        | x Clear filters
     .mobile-toggle-box
       filter-name
       filter-professions
-      filter-range(type="ctrl.filterAge.type" range="ctrl.filterAge.range")
-      filter-range(type="ctrl.filterHeight.type" range="ctrl.filterHeight.range")
-      filter-range(type="ctrl.filterWeight.type" range="ctrl.filterWeight.range")
+      filter-hair
+      filter-range(unit="ctrl.filterAge.unit" type="ctrl.filterAge.type" range="ctrl.filterAge.range")
+      filter-range(unit="ctrl.filterHeight.unit" type="ctrl.filterHeight.type" range="ctrl.filterHeight.range")
+      filter-range(unit="ctrl.filterWeight.unit" type="ctrl.filterWeight.type" range="ctrl.filterWeight.range")
