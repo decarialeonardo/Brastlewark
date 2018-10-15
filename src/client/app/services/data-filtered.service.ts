@@ -59,6 +59,7 @@ module App {
         }
 
         private filterByName(collection, name){
+            name = name.toLowerCase();
             return collection.filter(function (gnome) {
                 return gnome.name.toLowerCase().includes(name);
             });
@@ -73,6 +74,9 @@ module App {
 
         private filterByHairColor(collection, colors){
             let self = this;
+            if ( colors.length === 0 ){
+                return collection;
+            }
             return collection.filter(function (gnome) {
                 return colors.includes(gnome.hair_color);
             });

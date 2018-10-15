@@ -13,18 +13,20 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'http://code.jquery.com/jquery-1.11.3.js',
       'node_modules/angular/angular.min.js',
       'node_modules/angularjs-slider/dist/rzslider.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
       //'node_modules/es6-promise/dist/es6-promise.js',
       'build/dist/brastlewark-pkg.js',
+      'tests/client/**/__mocks__/*.js',
       'tests/client/**/*.js'
     ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-			'src/client/app/**/*.js': ['coverage']
+			'build/dist/**/*.js': ['coverage']
     },
 
     // test results reporter to use

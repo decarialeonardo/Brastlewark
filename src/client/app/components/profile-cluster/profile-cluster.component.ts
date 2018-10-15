@@ -19,22 +19,32 @@ module App {
         public restrict = "E";
         public replace = true;
         public templateUrl = "static/components/profile-cluster/profile-cluster.component.html";
-        public scope = {
+        public scope = {};
+        public controller = App.ProfileClusterController;
+        public bindToController = {
             profile: "="
         };
+        public controllerAs = "ctrl";
+
         public link: (scope: IGnome, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => void;
 
         constructor() {
             
         }
 
-        public roundToTwo(num:number) {    
-            return Math.round(num * 100) / 100;
-        }
-
         static getFactory(): ng.IDirectiveFactory {
             const directive = () => new ProfileClusterComponent();
             return directive;
+        }
+    }
+
+    export class ProfileClusterController {
+        private profile;
+
+        constructor(){}
+
+        public roundToTwo(num:number) {    
+            return Math.round(num * 100) / 100;
         }
     }
 }

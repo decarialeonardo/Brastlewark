@@ -15,18 +15,11 @@ module App {
             const directive = () => new MainComponent();
             return directive;
         }
-
-
     }
 
     export class MainController {
         public static $inject = ["PopulationService","DataFilteredService"];
         private results:any;
-        private professions;
-        private hair_colors;
-        private ageRange;
-        private heightRange;
-        private weightRange;
 
         constructor(private populationService:PopulationService, private dataFilteredService:DataFilteredService){
             this.loadData();

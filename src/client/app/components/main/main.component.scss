@@ -7,4 +7,108 @@
         padding: 16px 0 16px 16px;
         display: inline-block;
     }
+
+    .timeline-item {
+        background: #272b30;
+        border: 1px solid #52575c;
+        border-radius: 12px;
+        padding: 12px;
+        margin: 0 auto;
+        max-width: 100%;
+        min-height: 200px;
+        margin-top: 15px;
+
+        .animated-background {
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-name: placeHolderShimmer;
+            animation-timing-function: linear;
+            background: #f6f7f8;
+            //background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+            background: linear-gradient(to right, #4c545b 8%, #34393f 18%, #4c545b 33%);
+            background-size: 800px 104px;
+            height: 96px;
+            position: relative;
+
+            .background-masker {
+                background: #272b30;
+                position: absolute;
+                &.header-top, &.header-bottom, &.subheader-bottom {
+                  top: 0;
+                  left: 40px;
+                  right: 0;
+                  height: 10px;
+                }
+                &.header-left, &.subheader-left, &.header-right, &.subheader-right {
+                  top: 10px;
+                  left: 40px;
+                  height: 8px;
+                  width: 10px;
+                }
+                &.header-bottom {
+                  top: 18px;
+                  height: 6px;
+                }
+                &.subheader-left, &.subheader-right {
+                  top: 24px;
+                  height: 6px;
+                }
+                &.header-right {
+                  width: auto;
+                  left: 300px;
+                  right: 0;
+                }
+                &.subheader-right {
+                  width: auto;
+                  left: 300px;
+                  right: 0;
+                  left: 230px;
+                }
+                &.subheader-bottom {
+                  top: 30px;
+                  height: 10px;
+                }
+                &.content-top, &.content-second-line, &.content-third-line, &.content-second-end, &.content-third-end, &.content-first-end {
+                  top: 40px;
+                  left: 0;
+                  right: 0;
+                  height: 6px;
+                }
+                &.content-top {
+                  height: 20px;
+                }
+                &.content-first-end, &.content-second-end, &.content-third-end {
+                  width: auto;
+                  left: 380px;
+                  right: 0;
+                  top: 60px;
+                  height: 8px;
+                }
+                &.content-second-line {
+                  top: 68px;
+                }
+                &.content-second-end {
+                  left: 420px;
+                  top: 74px;
+                }
+                &.content-third-line {
+                  top: 82px;
+                }
+                &.content-third-end {
+                  left: 300px;
+                  top: 88px;
+                }
+              }
+        }
+    }
+
+    @keyframes placeHolderShimmer{
+        0%{
+            background-position: -468px 0
+        }
+        100%{
+            background-position: 468px 0
+        }
+    }
 }

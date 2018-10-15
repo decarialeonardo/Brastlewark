@@ -18,15 +18,10 @@ describe('A Test for Serivce Population', function () {
         });
  
         it('should return a list of the gnomes', function () {
-            //const data = populationService.getPopulation();
             populationService.getPopulation().then(function(data){
                 assert.isDefined(data);
                 assert.isArra(data);
-                //expect(data).to.equal(pair);
-                //expect(data.rate).to.have.length(400);
-            });// no catch, it'll figure it out since the promise is rejected
-            // data.to.eventually.have.property("Brastlewark");
-            // assert.isDefined(data);
+            });
         });
     });
 });

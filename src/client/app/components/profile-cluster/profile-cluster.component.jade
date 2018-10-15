@@ -1,27 +1,27 @@
 .row.profile-item
     .col-md-3
         figure.pull-left
-            img.media-object.img-rounded.img-responsive(ng-src='{{ profile.thumbnail }}' class="img-fluid" alt="")
+            img.media-object.img-rounded.img-responsive(ng-src='{{ ctrl.profile.thumbnail }}' class="img-fluid" alt="")
     .col-md-9
         .row
             .col-sm-9
-                h3.list-group-item-heading  {{profile.name}}
+                h3.list-group-item-heading  {{ctrl.profile.name}}
             .col-sm-3
-                h5.list-group-item-heading {{profile.age}} Years
+                h5.list-group-item-heading {{ctrl.profile.age}} Years
         .row.header-info
             .col-md-12
-                p {{ profile.professions.join(', ') || '- No Professions -' }}
+                p {{ ctrl.profile.professions.join(', ') || '- No Professions -' }}
         .row.middle-info
             .col-md-12  
                 label Hair Color: 
-                span &nbsp;{{profile.hair_color}}
+                span &nbsp;{{ctrl.profile.hair_color}}
             .col-md-12  
                 label Weight: 
-                span &nbsp;{{roundToTwo(profile.weight)}} Kg.
+                span &nbsp;{{ctrl.roundToTwo(ctrl.profile.weight)}} Kg.
             .col-md-12  
                 label Height: 
-                span &nbsp;{{roundToTwo(profile.height)}} cm.
+                span &nbsp;{{ctrl.roundToTwo(ctrl.profile.height)}} cm.
         .row.footer-info
             .col-md-12
-                label Friends({{profile.friends.length}}):
-                span &nbsp;{{ profile.friends.join(', ') || '- No Friends -' }}
+                label Friends({{ctrl.profile.friends.length}}):
+                span &nbsp;{{ ctrl.profile.friends.join(', ') || '- No Friends -' }}

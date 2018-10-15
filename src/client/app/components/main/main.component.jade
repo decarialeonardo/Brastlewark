@@ -7,7 +7,24 @@
       | gnomes
   .row
     .col-md-3
-      filters-box(age-range="ctrl.ageRange")
+      filters-box
     .col-md-9
+          .timeline-wrapper(ng-if="!ctrl.results()")
+            .timeline-item(ng-repeat="i in [1, 2, 3, 4, 5]")
+              .animated-background
+                .background-masker.header-top
+                .background-masker.header-left
+                .background-masker.header-right
+                .background-masker.header-bottom
+                .background-masker.subheader-left
+                .background-masker.subheader-right
+                .background-masker.subheader-bottom
+                .background-masker.content-top
+                .background-masker.content-first-end
+                .background-masker.content-second-line
+                .background-masker.content-second-end
+                .background-masker.content-third-line
+                .background-masker.content-third-end
           .list-group
+            h2(class="text-center" ng-show="ctrl.results().length === 0") No results found
             profile-cluster(ng-repeat="gnome in ctrl.results()" profile="gnome")
