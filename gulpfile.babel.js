@@ -8,7 +8,9 @@ import csso from 'gulp-csso';
 import concat from 'gulp-concat';
 import order from 'gulp-order';
 import print from 'gulp-print';
+import uglify from 'gulp-uglify';
 import templateCache from './gulp-tasks/template-cache';
+
 
 const PATHS = {
   server: './src/server/',
@@ -100,7 +102,8 @@ gulp.task('build:client:scripts', done => {
       'build/dist/app.module.js'
     ], { base: './' } ))
     .pipe(print())
-		.pipe(concat('brastlewark-pkg.js'))
+    .pipe(concat('brastlewark-pkg.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('build/dist/'))
     .on('end', done);
 });
@@ -118,7 +121,5 @@ gulp.task('build:vendors:scripts', done => {
     .pipe(gulp.dest('build/dist/'))
     .on('end', done);
 });
-
-
 
 gulp.task('build-client', gulp.series('build:client:typescript', templateCache({gulp}),'build:client:jade','build:client:styles','build:client:scripts','build:vendors:scripts'));

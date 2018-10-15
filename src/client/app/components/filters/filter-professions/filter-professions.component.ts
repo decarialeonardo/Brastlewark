@@ -17,7 +17,7 @@ module App {
     export class FilterProfessionsController {
         public static $inject = ["DataFilteredService",'Constants'];
         private professions;
-        private selection;
+        private selection:Array<string>;
 
         constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {
             this.selection = [];

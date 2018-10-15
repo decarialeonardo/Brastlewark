@@ -1,8 +1,8 @@
 module App {
     export class DataFilteredService {
         public static $inject = ['Constants'];
-        private gnomes:any;
-        private initial_gnomes:any;
+        private gnomes:IGnome[];
+        private initial_gnomes:IGnome[];
         private filters:any;
 
         constructor(private constants:Constants){

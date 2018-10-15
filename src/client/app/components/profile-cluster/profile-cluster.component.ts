@@ -39,7 +39,7 @@ module App {
     }
 
     export class ProfileClusterController {
-        private profile;
+        private profile:IGnome;
 
         constructor(){}
 

@@ -16,8 +16,8 @@ module App {
 
     export class FilterHairController {
         public static $inject = ["DataFilteredService","Constants"];
-        private selection;
-        private colors;
+        private selection:Array<string>;
+        private colors:any;
 
         constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {
             this.selection = [];

@@ -16,7 +16,7 @@ module App {
 
     export class FilterNameController {
         public static $inject = ["DataFilteredService",'Constants'];
-        private name: any;
+        private name:string;
 
         constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {}
 

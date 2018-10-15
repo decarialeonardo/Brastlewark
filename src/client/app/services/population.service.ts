@@ -4,7 +4,7 @@ module App {
 
         constructor(private $http: any){}
 
-        public getPopulation(){
+        public getPopulation(): ng.IHttpPromise<IGnome[]>{
             return this.$http({
                 method: 'GET',
                 url: '/brastlewark/api/population'

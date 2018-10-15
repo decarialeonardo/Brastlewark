@@ -21,10 +21,9 @@ module App {
 
     export class FilterRangeController {
         public static $inject = ["$scope","DataFilteredService","Constants"];
-        private slider;
-        private type;
-        private unit;
-        private range;
+        private slider:any;
+        private type:string;
+        private range:any;
 
         constructor(private scope,private dataFilteredService:DataFilteredService, private constants:Constants) {
             let self = this;

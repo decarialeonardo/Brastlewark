@@ -17,7 +17,7 @@ module App {
 
     export class FilterBoxController {
         public static $inject = ["DataFilteredService",'Constants'];
-        private filtersRange;
+        private filtersRange:any;
         private AGE_MIN = 30;
         private AGE_MAX = 379;
         private HEIGHT_MIN = 91.41726;

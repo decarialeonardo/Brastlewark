@@ -8,12 +8,12 @@ const app = express();
 
 app.disable('x-powered-by');
 app.set('views', DIST_PATH);
-app.set('view engine', 'html');
+app.set('view engine', 'jade');
 
 app.use('/static', express.static(DIST_PATH));
 
-app.get('/',(req, res) => {
-    res.sendFile(path.join(`${config.buildPath}/../views/index.html`));
+app.get('/:results',(req, res) => {
+    res.render(path.join(`${config.buildPath}/../views/index`));
 });
 
 export default app;
