@@ -9,9 +9,6 @@ module App {
             valueMin:"=",
             valueMax:"="
         };
-        public controller = App.ResultsContainerController;
-        public bindToController = {};
-        public controllerAs = "ctrl";
 
         constructor(private $document:ng.IDocumentService) {};
 

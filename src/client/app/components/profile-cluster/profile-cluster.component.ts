@@ -28,6 +28,10 @@ module App {
             
         }
 
+        public roundToTwo(num:number) {    
+            return Math.round(num * 100) / 100;
+        }
+
         static getFactory(): ng.IDirectiveFactory {
             const directive = () => new ProfileClusterComponent();
             return directive;

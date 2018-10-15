@@ -17,10 +17,10 @@
                 span &nbsp;{{profile.hair_color}}
             .col-md-12  
                 label Weight: 
-                span &nbsp;{{profile.weight}} Kg.
+                span &nbsp;{{roundToTwo(profile.weight)}} Kg.
             .col-md-12  
                 label Height: 
-                span &nbsp;{{profile.height}} cm.
+                span &nbsp;{{roundToTwo(profile.height)}} cm.
         .row.footer-info
             .col-md-12
                 label Friends({{profile.friends.length}}):

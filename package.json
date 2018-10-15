@@ -6,7 +6,15 @@
   "scripts": {
     "dev": "gulp build-client && gulp dev:server",
     "start": "node --prof build/server/bin/www.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "run-s 'test:**'",
+    "test:client": "karma start karma.conf.js",
+    "test:server": "jest --config src/server/jest.config.js --coverage"
+  },
+  "jest": {
+    "testPathDirs": [
+      "src/client"
+    ],
+    "setupTestFrameworkScriptFile": "src/client/jest.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +28,7 @@
     "express": "^4.16.3",
     "http-status-codes": "^1.3.0",
     "jade": "^1.11.0",
+    "karma": "^3.0.0",
     "path": "^0.12.7",
     "tsc": "^1.20150623.0"
   },
@@ -31,8 +40,13 @@
     "@types/cookie-parser": "^1.4.1",
     "@types/cors": "^2.8.1",
     "@types/express": "^4.11.0",
+    "@types/jest": "^23.3.5",
     "@types/node": "^10.11.4",
+    "@types/supertest": "^2.0.6",
+    "angular-mocks": "1.4.8",
     "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "gulp": "^4.0.0",
     "gulp-angular-templatecache": "^2.2.1",
     "gulp-babel": "^8.0.0",
@@ -47,7 +61,17 @@
     "gulp-typescript": "^4.0.2",
     "gulp-uglify": "^3.0.1",
     "jest": "^23.6.0",
+    "karma-chai": "^0.1.0",
+    "karma-chai-as-promised": "^0.1.2",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.2",
+    "karma-mocha": "^1.3.0",
+    "karma-sinon": "^1.0.5",
+    "mocha": "^5.2.0",
     "npm-run-all": "^4.1.3",
+    "sinon": "^7.0.0",
+    "supertest": "^3.3.0",
+    "ts-jest": "^23.10.4",
     "typescript": "^2.9.2"
   }
 }
