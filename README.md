@@ -24,9 +24,8 @@ Make sure you have
 
 - and then you can run the project by typing:
 
-    `npm run dev`
+    `npm start`
 
-- this will automatically reload the server on changes!
 
 Your app should now be running on [localhost:5000](http://localhost.com:5000/brastlewark/results).
 

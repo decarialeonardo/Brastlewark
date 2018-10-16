@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp build-client && gulp dev:server",
-    "start": "node --prof build/server/bin/www.js",
+    "start": "gulp build-client && node --prof build/server/bin/www.js",
     "pretest": "gulp build-client",
     "test": "run-s 'test:**'",
     "test:client": "karma start karma.conf.js",
