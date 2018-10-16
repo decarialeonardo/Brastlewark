@@ -2,7 +2,7 @@
 
 ## Overview
 
-Node.js Packages app using [Express 4](http://expressjs.com/) to server the [JSON](https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json) like an API. The client consume this API and show the population of Brastlewark Town with AngularJs[1.4.8](https://angularjs.org/).
+Node.js Packages app is used [Express 4](http://expressjs.com/) to server the API[JSON](https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json)   and  server the static files. The client consumes this API and shows the population of Brastlewark Town with AngularJs[1.4.8](https://angularjs.org/).
 
 ## Quickstart
 
@@ -24,9 +24,8 @@ Make sure you have
 
 - and then you can run the project by typing:
 
-    `npm run dev`
+    `npm start`
 
-- this will automatically reload the server on changes!
 
 Your app should now be running on [localhost:5000](http://localhost.com:5000/brastlewark/results).
 

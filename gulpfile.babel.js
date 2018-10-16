@@ -45,13 +45,16 @@ gulp.task('watch:server', done => {
   return stream
     .on('restart', () => {
       console.log('Server restarted!');
+      done();
     })
     .on('crash', () => {
       console.error('Server crashed!\n');
       stream.emit('restart', 10);
+      done();
     })
     .on('start', () => {
       console.log('Server Started');
+      done();
 	})
     .on('quit', () => {
       done();
