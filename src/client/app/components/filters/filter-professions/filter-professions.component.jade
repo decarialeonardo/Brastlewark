@@ -1,9 +1,12 @@
-.filter-item
+.filter-item.professions
   .filter-header
     span.icon.icon-day-night
     | Professions
   .filter-container.checkbox-list
-    .inner
+    .inner(ng-class="{'collapse-show': ctrl.collapsed}")
       label(ng-repeat='profession in ctrl.professions()')
         input(type='checkbox' name='ctrl.selectedProfessions[profession]' ng-model="ctrl.selectedProfessions[profession]" id='check-{{profession}}' value='{{profession}}' ng-click='ctrl.toggleSelection(profession)')
         span.txt {{profession}}
+    .show-more(data-ng-if='ctrl.professions().length > 6')
+      div(ng-click='ctrl.toggleListHeight()')
+        span {{!ctrl.collapsed ? "Show more >" : "Show less <"}}

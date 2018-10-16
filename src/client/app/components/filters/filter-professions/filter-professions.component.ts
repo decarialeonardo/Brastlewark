@@ -17,13 +17,19 @@ module App {
     export class FilterProfessionsController {
         public static $inject = ["DataFilteredService",'Constants'];
         private professions;
+        private collapsed:boolean;
         private selection:Array<string>;
 
         constructor(private dataFilteredService:DataFilteredService, private constants:Constants) {
             this.selection = [];
+            this.collapsed = false;
             this.professions = function(){
                 return this.dataFilteredService.getFilterOptions(this.constants.FiltersType.PROFESSIONS);
             }
+        }
+
+        public toggleListHeight(){
+            this.collapsed = !this.collapsed;
         }
 
         public toggleSelection(profession){

@@ -1,0 +1,30 @@
+.professions{
+    .inner {
+        max-height: 190px;
+        overflow-y: hidden;
+
+        &.collapse-show {
+            max-height: inherit;
+        }
+    }
+
+    .show-more {
+        margin-bottom: 10px;
+        padding-left: 12px;
+
+        div {
+            color: #179ea4;
+
+          &:hover {
+            color: #0a5e60;
+            cursor: pointer;
+            text-decoration: underline;
+          }
+
+          span.icon-down {
+            margin-left: 8px;
+            vertical-align: middle;
+          }
+        }
+      }
+}   
