@@ -13,7 +13,7 @@ Make sure you have
 - [Typings](https://www.npmjs.com/package/typings)
      - `npm install --global typings`
 
-- [Clone](git@github.com:decarialeonardo/Brastlewark.git)`git clonegit@github.com:decarialeonardo/Brastlewark.git` this repository and build on what is included in the root directory.
+- [Clone](git@github.com:decarialeonardo/Brastlewark.git) `git clone git@github.com:decarialeonardo/Brastlewark.git` this repository and build on what is included in the root directory.
 
 ### The basic starting point:
 
@@ -35,29 +35,33 @@ Your app should now be running on [localhost:5000](http://localhost.com:5000/bra
 - Return a JSON list of gnomes.  (http://localhost.com:5000/brastlewark/api).
 
 
-### Api:
+### Tests:
 - Run tests (NodeJs and AngularJs)
-    - `npm test`
+
+    `npm test`
 
 
-## TypeScript Code
-
-The TypeScript code is located in the `client` folder and is automatically transpiler to ES5 into `public` folder.
-
-## Frameworks & Libraries
+## Tools
 
 ### Frameworks
+- Typescript
 - Angular 1.4.8
-- Bootstrap - Theme Superhero
+- Node 10
+- [Slate Theme Bootstrap](https://bootswatch.com/slate/)
 
-### angular-ui-router
-- It is used to manage routes
+### Angularjs-slider (http://angular-slider.github.io/angularjs-slider/)
+- Slider for range filters
 
-### watch-http-server
-- It is used to server up
+### Jade
+- Tempalate Engine
 
-### bower
-- It is used to UI components installer
+### Sass
+- Styling
 
-### typings
-- It is used to TS code transpiler to ES5
+### Gulp
+- Task manager
+
+
+### Tests
+- `Karma with mocha` - Test Runner Front End
+- `Jest` - Test Tool Node
