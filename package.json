@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp build-client && gulp dev:server",
-    "start": "gulp build-client && node --prof build/server/bin/www.js",
-    "pretest": "gulp build-client",
+    "dev": "node_modules/gulp/bin/gulp.js build-client && gulp dev:server",
+    "start": "node_modules/gulp/bin/gulp.js build-client && node --prof build/server/bin/www.js",
+    "pretest": "node_modules/gulp/bin/gulp.js build-client",
     "test": "run-s 'test:**'",
     "test:client": "karma start karma.conf.js",
     "test:server": "jest --config src/server/jest.config.js --coverage"
